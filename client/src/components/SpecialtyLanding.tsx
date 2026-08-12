@@ -8,6 +8,7 @@ import { Check, ChevronDown, Droplets, Heart, MapPin, Menu, Scan, Shield, Sparkl
 import type { IconName, SpecialtyContent } from "@/content/types";
 import { site, whatsappUrl } from "@/content/site";
 import { Seo } from "./Seo";
+import { CompanyInfo } from "./CompanyInfo";
 import { Testimonials } from "./Testimonials";
 
 const icons = { stethoscope: Stethoscope, heart: Heart, shield: Shield, sparkles: Sparkles, droplets: Droplets, user: User, scan: Scan, check: Check } satisfies Record<IconName, typeof Check>;
@@ -58,5 +59,5 @@ export function SpecialtyLanding({ content }: { content: SpecialtyContent }) {
     <section className="contrast"><div className="container final-cta"><h2>{content.finalCta.title}</h2><p>{content.finalCta.text}</p><a className="button light" href={whatsappUrl()} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a><small>Atendimento particular. Consulta prévia sempre.</small></div></section>
     <section id="faq" className="section alt"><div className="container narrow"><p className="eyebrow">Dúvidas frequentes</p><h2>Informações para sua consulta</h2><Accordion.Root type="single" collapsible className="faq">{content.faq.map((item, i) => <Accordion.Item value={`item-${i}`} key={item.question}><Accordion.Header><Accordion.Trigger>{item.question}<ChevronDown strokeWidth={1.5} aria-hidden="true" /></Accordion.Trigger></Accordion.Header><Accordion.Content><p>{item.answer}</p></Accordion.Content></Accordion.Item>)}</Accordion.Root></div></section>
     <ContactForm content={content} />
-  </main><footer><div className="container footer-inner"><div><strong>{site.name}</strong><small>{site.crm}</small></div><nav aria-label="Links do rodapé"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#faq">FAQ</a><Link href={content.other.href}>Conheça também: {content.other.label}</Link></nav><small className="credit">ELYSSA</small></div></footer></div>;
+  </main><footer><div className="container"><div className="footer-inner"><div><strong>{site.name}</strong><small>{site.crm}</small></div><nav aria-label="Links do rodapé"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#faq">FAQ</a><Link href={content.other.href}>Conheça também: {content.other.label}</Link></nav><small className="credit">ELYSSA</small></div><CompanyInfo /></div></footer></div>;
 }

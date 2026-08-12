@@ -94,6 +94,18 @@ footer { background:var(--foreground); color:var(--background); padding:3.5rem 0
 .footer-inner nav { display:flex; gap:1.25rem; font-size:.8rem; }
 .footer-inner small { opacity:.7; margin-top:.5rem; }
 .credit { letter-spacing:.18em; font-size:.65rem; }
+.company-info { display:grid; grid-template-columns:minmax(0,1.1fr) auto minmax(0,1.5fr) auto; gap:1.75rem 2.25rem; margin:2.75rem 0 0; padding-top:2.25rem; border-top:1px solid currentColor; }
+.company-cnpj dd,.company-email dd { white-space:nowrap; }
+.company-info.dark { border-top-color:color-mix(in srgb,var(--background) 22%,transparent); }
+.company-info dt { font-size:.68rem; text-transform:uppercase; letter-spacing:.16em; font-weight:600; opacity:.6; margin-bottom:.5rem; }
+.company-info dd { margin:0; font-size:.95rem; line-height:1.6; font-weight:500; }
+.company-info dd a { text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; overflow-wrap:anywhere; }
+.company-info dd a:hover { opacity:.7; }
+.company-info.light { border-top-color:var(--border); margin-top:0; padding-top:2rem; }
+.company-info.light dt { color:var(--accent); opacity:1; }
+.company-info.light dd { color:var(--foreground); }
+.gateway-footer-inner { width:min(1300px,100%); margin-inline:auto; }
+.gateway-footer-meta { display:flex; justify-content:space-between; gap:1rem; margin-top:1.75rem; font-size:.68rem; letter-spacing:.1em; }
 .gateway { min-height:100svh; display:flex; flex-direction:column; }
 .gateway-main { flex:1; display:flex; align-items:center; padding:3rem max(20px,4vw); }
 .gateway-grid { width:min(1300px,100%); margin:auto; display:grid; grid-template-columns:.9fr 1.1fr; align-items:center; gap:clamp(3rem,8vw,9rem); }
@@ -114,7 +126,7 @@ footer { background:var(--foreground); color:var(--background); padding:3.5rem 0
 .door small { color:var(--muted-text); margin-top:.35rem; }
 .door.endoscopy:hover { border-color:var(--endo); background:var(--endo-soft); color:var(--endo); }
 .door.aesthetics:hover { border-color:var(--esthetic); background:var(--esthetic-soft); color:var(--esthetic); }
-.gateway-footer { background:transparent; color:var(--muted-text); padding:1rem max(20px,4vw); display:flex; justify-content:space-between; font-size:.68rem; letter-spacing:.1em; }
+.gateway-footer { background:transparent; color:var(--muted-text); padding:0 max(20px,4vw) 1.5rem; }
 .not-found { display:grid; place-items:center; padding:2rem; text-align:center; }
 .not-found main { max-width:680px; }
 .not-found h1 { max-width:none; }
@@ -129,6 +141,8 @@ footer { background:var(--foreground); color:var(--background); padding:3.5rem 0
   .services.count-4 { grid-template-columns:repeat(2,1fr); }
   .differentials { grid-template-columns:repeat(2,1fr); }
   .footer-inner { grid-template-columns:1fr; } .footer-inner nav { flex-wrap:wrap; }
+  .company-info { grid-template-columns:1fr 1fr; gap:1.5rem 2.5rem; }
+  .company-info .company-address { grid-column:1 / -1; }
   .gateway-main { padding-top:2rem; } .gateway-grid { gap:3rem; } .carousel-slide { height:52svh; }
 }
 @media (max-width:620px) {
@@ -141,6 +155,8 @@ footer { background:var(--foreground); color:var(--background); padding:3.5rem 0
   .differentials { grid-template-columns:1fr; }
   .cta-inner { flex-direction:column; align-items:flex-start; gap:1.5rem; }
   .submit { width:100%; }
+  .company-info { grid-template-columns:1fr; gap:1.35rem; }
+  .gateway-footer-meta { flex-direction:column; gap:.4rem; }
   .gateway-main { align-items:flex-start; } .gateway-copy h1 { max-width:12ch; }
   .carousel-slide { height:48svh; }
 }

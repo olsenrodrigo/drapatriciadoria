@@ -18,12 +18,10 @@ interface ContactData {
 }
 
 export async function sendContactEmail(data: ContactData) {
-  /* WHITELABEL: Substituir email de destino */
-  const to = process.env.CONTACT_EMAIL || "contato@seusite.com.br";
+  const to = process.env.CONTACT_EMAIL || "drapatriciadoria@gmail.com";
 
   await transporter.sendMail({
-    /* WHITELABEL: Substituir nome do remetente */
-    from: `"Site Medico" <${process.env.SMTP_USER}>`,
+    from: `"Site Dra. Patricia Doria" <${process.env.SMTP_USER}>`,
     to,
     replyTo: data.email,
     subject: `Nova consulta – ${data.name}`,
