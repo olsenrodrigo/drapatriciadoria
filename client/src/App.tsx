@@ -9,7 +9,11 @@ import Gateway from "@/pages/Gateway";
 import Endoscopia from "@/pages/Endoscopia";
 import Estetica from "@/pages/Estetica";
 
-function ScrollToTop() { const [location] = useLocation(); useEffect(() => window.scrollTo(0, 0), [location]); return null; }
+/* O corpo em bloco é obrigatório: no Chrome novo window.scrollTo devolve uma Promise, e o
+   React chamaria esse retorno como função de limpeza — o que derrubava a árvore inteira
+   (tela branca) ao trocar de rota. O behavior "instant" ignora o scroll-behavior:smooth do
+   CSS: troca de rota deve saltar para o topo, não animar a página toda. */
+function ScrollToTop() { const [location] = useLocation(); useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: "instant" }); }, [location]); return null; }
 
 function Router() {
   return (
