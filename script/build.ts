@@ -38,6 +38,11 @@ async function buildAll() {
   console.log("building client...");
   await viteBuild();
 
+  // HTML estático por rota + sitemap.xml + robots.txt + llms.txt
+  // (ver script/prerender.ts). Sem isso o HTML bruto é um <div> vazio.
+  const { gerar } = await import("./prerender");
+  await gerar();
+
   console.log("building server...");
   const pkg = JSON.parse(await readFile("package.json", "utf-8"));
   const allDeps = [
