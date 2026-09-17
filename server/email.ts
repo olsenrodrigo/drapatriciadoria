@@ -18,7 +18,9 @@ interface ContactData {
 }
 
 export async function sendContactEmail(data: ContactData) {
-  const to = process.env.CONTACT_EMAIL || "drapatriciadoria@gmail.com";
+  // O fallback aponta para o proprio dominio do site: o padrao whitelabel era
+  // contato@seusite.com.br, dominio de terceiro, entao lead nenhum chegava.
+  const to = process.env.CONTACT_EMAIL || "contato@drapatriciadoria.com.br";
 
   await transporter.sendMail({
     from: `"Site Dra. Patricia Doria" <${process.env.SMTP_USER}>`,

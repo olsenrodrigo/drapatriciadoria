@@ -1,5 +1,5 @@
 export const WHATSAPP_NUMBER = "5517999999999"; // TODO: confirmar número real com a Dra. Patrícia
-export const CONTACT_EMAIL = "drapatriciadoria@gmail.com";
+export const CONTACT_EMAIL = "contato@drapatriciadoria.com.br";
 
 export const site = {
   name: "Dra. Patrícia Doria Lourenço",
